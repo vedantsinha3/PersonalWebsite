@@ -5,11 +5,11 @@ const navItems = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
-  { id: 'diagrams', label: 'Diagrams' },
+  // { id: 'diagrams', label: 'Diagrams' },
   { id: 'timeline', label: 'Timeline' },
   { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
+  // { id: 'contact', label: 'Contact' },
 ]
 
 function Navbar() {
