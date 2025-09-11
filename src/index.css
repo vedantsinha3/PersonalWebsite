@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* Base theme tokens (optional) */
+:root {
+  --ring: 59 130 246;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-neutral-950 text-neutral-100 antialiased selection:bg-blue-500 selection:text-white;
+}
+
+/* Container utility */
+.container {
+  @apply mx-auto max-w-6xl px-6;
+}
+
+/* Section spacing */
+.section {
+  @apply py-20 md:py-28;
+}
+
+/* Card base */
+.card {
+  @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-sm shadow-black/20;
+}
+
+/* Micro-interactions */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    transition: none;
+  }
+}
