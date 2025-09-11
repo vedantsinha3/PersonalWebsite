@@ -7,7 +7,7 @@ import Projects from './components/Projects.tsx'
 import Timeline from './components/Timeline.tsx'
 import Education from './components/Education.tsx'
 import Skills from './components/Skills.tsx'
-// import Contact from './components/Contact.tsx'
+import Contact from './components/Contact.tsx'
 import Footer from './components/Footer.tsx'
 
 function App() {
@@ -19,11 +19,11 @@ function App() {
         <About />
         <Experience />
         <Projects />
-        {/* <Diagrams /> */}  
+        {/* <Diagrams />   */}
         <Timeline />
         <Education />
         <Skills />
-        {/* <Contact /> */}
+        <Contact />
       </main>
       <Footer />
     </div>
