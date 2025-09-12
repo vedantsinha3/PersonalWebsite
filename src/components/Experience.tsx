@@ -19,6 +19,17 @@ const roles: Role[] = [
     ],
   },
   {
+    company: 'SAM Singapore Math',
+    title: 'Math Teacher',
+    location: 'Dublin, CA',
+    period: 'July 2024 — Sep 2025',
+    bullets: [
+      'Taught math to students aged 6-18 years old; developed engaging curriculum',
+      'Provided personalized feedback and guidance to help students achieve academic success',
+      'Fostered a positive learning environment and helped students develop a love for math',
+    ],
+  },
+  {
     company: 'TheCoderSchool',
     title: 'Coding Instructor',
     location: 'San Ramon, CA',
