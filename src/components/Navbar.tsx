@@ -5,19 +5,28 @@ const navItems = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
-  // { id: 'diagrams', label: 'Diagrams' },
   { id: 'timeline', label: 'Timeline' },
   { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
-  // { id: 'contact', label: 'Contact' },
 ]
+
+// A new component for the animated hamburger/close icon
+function MenuIcon({ open }: { open: boolean }) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" >
+      <path d="M3 12h18" className={`transition-transform duration-300 ease-in-out ${open ? 'scale-x-0' : ''}`} style={{ transformOrigin: 'center' }} />
+      <path d="M3 6h18" className={`transition-transform duration-300 ease-in-out ${open ? 'rotate-45 translate-y-[6px]' : ''}`} style={{ transformOrigin: 'center' }} />
+      <path d="M3 18h18" className={`transition-transform duration-300 ease-in-out ${open ? '-rotate-45 translate-y-[-6px]' : ''}`} style={{ transformOrigin: 'center' }} />
+    </svg>
+  )
+}
+
 
 function Navbar() {
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState<string>('home')
   const [scrolled, setScrolled] = useState(false)
 
-  // Watch sections enter viewport to highlight active nav and header shadow
   useEffect(() => {
     if (typeof window === 'undefined') return
 
@@ -30,12 +39,11 @@ function Navbar() {
           }
         }
       },
-      { rootMargin: '-40% 0px -55% 0px', threshold: [0, 0.2, 0.6] }
+      { rootMargin: '-40% 0px -55% 0px' }
     )
 
-    const ids = ['home', 'about', 'experience', 'projects', 'diagrams', 'timeline', 'education', 'skills', 'contact']
-    ids.forEach((id) => {
-      const el = document.getElementById(id)
+    navItems.forEach((item) => {
+      const el = document.getElementById(item.id)
       if (el) observer.observe(el)
     })
 
@@ -56,13 +64,16 @@ function Navbar() {
           Vedant Sinha
         </a>
 
-        <nav className="hidden gap-6 md:flex">
+        {/* Desktop Navigation */}
+        <nav className="hidden gap-2 md:flex">
           {navItems.map((item) => (
             <a
               key={item.id}
               href={`#${item.id}`}
-              className={`text-sm transition-colors ${
-                active === item.id ? 'text-white' : 'text-neutral-300 hover:text-white'
+              className={`relative rounded-full px-3 py-1.5 text-sm transition-colors duration-200 ${
+                active === item.id
+                  ? 'bg-white/10 text-white'
+                  : 'text-neutral-300 hover:text-white hover:bg-white/5'
               }`}
             >
               {item.label}
@@ -70,25 +81,27 @@ function Navbar() {
           ))}
         </nav>
 
+        {/* Mobile Navigation Toggle */}
         <button
-          className="md:hidden p-2 rounded-lg border border-white/10 text-neutral-300"
+          className="md:hidden p-2 rounded-lg"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle navigation"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 6h18M3 12h18M3 18h18" />
-          </svg>
+          <MenuIcon open={open} />
         </button>
       </div>
 
-      {open && (
-        <div className="md:hidden border-t border-white/10 bg-neutral-950/80">
-          <div className="container py-3 flex flex-col gap-2">
+      {/* Mobile Menu (Animated) */}
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${open ? 'max-h-96 border-t border-white/10' : 'max-h-0'}`}>
+        <div className="bg-neutral-950/90">
+          <div className="container py-3 flex flex-col">
             {navItems.map((item) => (
               <a
                 key={item.id}
                 href={`#${item.id}`}
-                className="py-2 text-neutral-300 hover:text-white"
+                className={`rounded-md px-3 py-2 transition-colors ${
+                  active === item.id ? 'bg-white/5 text-white' : 'text-neutral-300 hover:text-white'
+                }`}
                 onClick={() => setOpen(false)}
               >
                 {item.label}
@@ -96,10 +109,9 @@ function Navbar() {
             ))}
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }
 
 export default Navbar
-
