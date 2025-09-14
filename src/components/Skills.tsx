@@ -1,7 +1,7 @@
 import {
   SiPython, SiCplusplus, SiJavascript, SiSwift, SiReact, SiFlask,
   SiFlutter, SiTauri, SiGit, SiDocker, SiLinux, SiOpencv, SiNumpy,
-  SiPandas, SiKeras, SiPytorch, SiSqlite, SiC
+  SiPandas, SiPytorch, SiSqlite, SiC
 } from 'react-icons/si'
 import { AiOutlineFilePdf } from 'react-icons/ai'
 
