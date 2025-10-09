@@ -18,6 +18,14 @@ function Hero() {
             <a href="#experience" className="inline-flex items-center rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white">
               Experience
             </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
+            >
+              Resume
+            </a>
           </div>
         </div>
         <div className="md:col-span-5">
