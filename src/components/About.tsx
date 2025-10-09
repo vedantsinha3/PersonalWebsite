@@ -24,12 +24,14 @@ function About() {
         <div className="grid items-center gap-12 md:grid-cols-3">
           {/* Image */}
           <div className="md:col-span-1">
-            <img
-              src="/me.jpg"
-              alt="Portrait of Vedant Sinha"
-              className="aspect-square w-full max-w-[380px] mx-auto rounded-lg object-cover ring-1 ring-neutral-800"
-              loading="lazy"
-            />
+            <div className="mx-auto w-full max-w-[380px] aspect-[5/5] overflow-hidden rounded-lg ring-1 ring-neutral-800">
+              <img
+                src="/me1.jpeg"
+                alt="Portrait of Vedant Sinha"
+                className="h-full w-full object-cover object-top"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           {/* Text and Skills */}
