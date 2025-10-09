@@ -30,6 +30,8 @@ function About() {
                 alt="Portrait of Vedant Sinha"
                 className="h-full w-full object-cover object-top"
                 loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 80vw, 380px"
               />
             </div>
           </div>

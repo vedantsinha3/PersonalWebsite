@@ -23,7 +23,31 @@ body {
 
 /* Card base */
 .card {
-  @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-sm shadow-black/20;
+  @apply relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-sm shadow-black/20 transition-transform duration-200;
+}
+
+/* Gradient border overlay (glass look) */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px; /* border thickness */
+  background: linear-gradient(90deg, rgba(59,130,246,0.35), rgba(56,189,248,0.35));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: .7;
+}
+
+.card:hover {
+  @apply bg-white/10;
+  transform: translateY(-1px) scale(1.01);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover { transform: none; }
 }
 
 /* Micro-interactions */

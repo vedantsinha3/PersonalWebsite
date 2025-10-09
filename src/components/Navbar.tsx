@@ -8,6 +8,7 @@ const navItems = [
   { id: 'timeline', label: 'Timeline' },
   { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 // A new component for the animated hamburger/close icon
@@ -29,6 +30,10 @@ function Navbar() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
+
+    // Initialize from URL hash if present
+    const initialHash = window.location.hash.replace('#', '')
+    if (initialHash) setActive(initialHash)
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -65,7 +70,7 @@ function Navbar() {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden gap-2 md:flex">
+        <nav className="hidden gap-2 md:flex" aria-label="Primary">
           {navItems.map((item) => (
             <a
               key={item.id}
@@ -75,6 +80,7 @@ function Navbar() {
                   ? 'bg-white/10 text-white'
                   : 'text-neutral-300 hover:text-white hover:bg-white/5'
               }`}
+              aria-current={active === item.id ? 'page' : undefined}
             >
               {item.label}
             </a>
@@ -102,7 +108,11 @@ function Navbar() {
                 className={`rounded-md px-3 py-2 transition-colors ${
                   active === item.id ? 'bg-white/5 text-white' : 'text-neutral-300 hover:text-white'
                 }`}
-                onClick={() => setOpen(false)}
+                aria-current={active === item.id ? 'page' : undefined}
+                onClick={() => {
+                  setActive(item.id)
+                  setOpen(false)
+                }}
               >
                 {item.label}
               </a>
