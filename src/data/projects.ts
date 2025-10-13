@@ -14,10 +14,10 @@ export const projects: Project[] = [
     tags: ['GPT‑4 Vision', 'OpenCV', 'Flask', 'React', 'Real‑ESRGAN'],
   },
   {
-    title: 'Anchor — Productivity App',
+    title: 'Vain — Ecommerce Platform',
     description:
-      'Distraction detection with Apple’s Vision API; tested on 15+ users. Adaptive alert system (UI + audio) improved focus time by 20% in trials. Shipped cross‑platform via Tauri, reducing install size by 40% vs Electron.',
-    tags: ['Tauri', 'Vision API', 'TypeScript', 'Desktop'],
+      'React-based e-commerce experience with product collections, denim archive, trending releases, and FAQs. Interactive shop-all filters, validated contact forms, and FAQ accordions. Responsive layouts and modern UI/UX with pages for new releases, shipping policies, and customer support.',
+    tags: ['React', 'TypeScript', 'UI/UX', 'Ecommerce'],
   },
   {
     title: 'Wordle Solver with Recommendations',

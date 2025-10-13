@@ -14,12 +14,12 @@ type Item = {
 const items: Item[] = [
   {
     period: 'Nov 2024 — Present',
-    title: 'Anchor — Productivity App',
+    title: 'Vain — Ecommerce Platform',
     org: 'Personal Project',
     summary: [
-      'Engineered a desktop app using Tauri and React to minimize distractions and boost user productivity.',
-      'Implemented real-time distraction detection by leveraging the Google Vision API.',
-      'User studies showed an average of a 20% increase in measured focus time.',
+      'Implemented a React website featuring product collections, denim archive, trending releases, and FAQs.',
+      'Built interactive components including shop-all filters, contact forms with validation, and FAQ accordions.',
+      'Styled the site with responsive layouts and modern UI/UX patterns, simulating an end-to-end e-commerce experience with pages for new releases, shipping policies, and customer support',
     ],
   },
   {

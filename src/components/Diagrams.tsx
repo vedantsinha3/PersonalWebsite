@@ -457,7 +457,7 @@ function Diagrams() {
             <Diagram viewBox="0 0 720 280" nodes={owligatorNodes} arrows={owligatorArrows} />
           </DiagramCard>
 
-          <DiagramCard title="Anchor — Productivity Desktop App">
+          <DiagramCard title="Vain — Ecommerce Platform">
             <Diagram viewBox="0 0 660 240" nodes={anchorNodes} arrows={anchorArrows} />
           </DiagramCard>
 
