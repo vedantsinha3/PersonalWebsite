@@ -1,4 +1,4 @@
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, Target, Puzzle, Activity, Flag } from 'lucide-react'
 
 function About() {
   const skills = [
@@ -11,10 +11,10 @@ function About() {
   ]
 
   const hobbies = [
-    { name: 'Basketball', icon: '🏀' },
-    { name: 'Speed Cubing', icon: '🧩' },
-    { name: 'Running', icon: '🏃' },
-    { name: 'Golfing', icon: '⛳' },
+    { name: 'Basketball', Icon: Target, accent: 'text-orange-400 bg-orange-400/10 group-hover:bg-orange-400/20 group-hover:scale-110 motion-reduce:group-hover:scale-100' },
+    { name: 'Speed Cubing', Icon: Puzzle, accent: 'text-purple-400 bg-purple-400/10 group-hover:bg-purple-400/20 group-hover:scale-110 motion-reduce:group-hover:scale-100' },
+    { name: 'Running', Icon: Activity, accent: 'text-green-400 bg-green-400/10 group-hover:bg-green-400/20 group-hover:scale-110 motion-reduce:group-hover:scale-100' },
+    { name: 'Golfing', Icon: Flag, accent: 'text-teal-400 bg-teal-400/10 group-hover:bg-teal-400/20 group-hover:scale-110 motion-reduce:group-hover:scale-100' },
   ]
 
   return (
@@ -59,11 +59,20 @@ function About() {
         {/* Hobbies Section */}
         <div className="mt-16">
           <h3 className="text-xl text-center font-semibold tracking-tight">Hobbies & Interests</h3>
-          <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {hobbies.map((hobby) => (
-              <div key={hobby.name} className="card p-4 text-center">
-                <div className="text-3xl">{hobby.icon}</div>
-                <div className="mt-2 text-sm text-neutral-200">{hobby.name}</div>
+              <div
+                key={hobby.name}
+                className="group card flex flex-col items-center p-6 text-center transition-all duration-300 hover:border-white/20"
+              >
+                <div
+                  className={`mb-3 flex h-14 w-14 shrink-0 items-center justify-center rounded-full transition-transform duration-300 ${hobby.accent}`}
+                >
+                  <hobby.Icon className="h-7 w-7" strokeWidth={2} />
+                </div>
+                <span className="text-sm font-medium text-neutral-200 group-hover:text-white transition-colors">
+                  {hobby.name}
+                </span>
               </div>
             ))}
           </div>
